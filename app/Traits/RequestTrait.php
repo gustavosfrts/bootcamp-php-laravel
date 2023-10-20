@@ -5,7 +5,7 @@ namespace App\Traits;
 use \Illuminate\Http\JsonResponse;
 trait RequestTrait
 {
-    public function APIReturn(?array $data, ?array $errors, int $statusCode): JsonResponse
+    public function APIReturn($data, ?array $errors, int $statusCode): JsonResponse
     {
         $data = [
           'data' => $data,
