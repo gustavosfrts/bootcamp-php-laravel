@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,13 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/teste', function (){
-    return response()->json(['data' => 'success', 'errors' => null], 200);
-});
-
-Route::get('/products', function (){
-    return response()->json(
-        ['data' => \App\Models\product::get()->load(['pictures']),
-         'errors' => null],
-    200);
+Route::prefix('product')->group(function () {
+   Route::get('/', [ProductController::class, 'listAllProducts'])->name('product.list.all');
 });
