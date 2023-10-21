@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('title', 128);
             $table->string('description', 1024);
-            $table->integer('size');
             $table->float('price', 18,2);
             $table->float('promotional_price', 18,2)->nullable();
             $table->timestamps();

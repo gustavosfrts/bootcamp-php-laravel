@@ -14,10 +14,10 @@ use App\Http\Controllers\ProductController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
-Route::prefix('product')->group(function () {
+Route::middleware(['auth:api'])->prefix('product')->group(function () {
    Route::get('/', [ProductController::class, 'listAllProducts'])->name('product.list.all');
    Route::get('/{id}', [ProductController::class, 'listSingleProduct'])->name('product.list.single');
    Route::post('/', [ProductController::class, 'createProduct'])->name('product.create');
    Route::put('/{id}', [ProductController::class, 'updateProduct'])->name('product.update');
+   Route::delete('/{id}', [ProductController::class, 'deleteProduct'])->name('product.delete');
 });
